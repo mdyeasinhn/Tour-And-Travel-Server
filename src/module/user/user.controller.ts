@@ -1,6 +1,6 @@
 // ----> req and res manage <----
 import { Request, Response } from "express";
-import User from "./user.model";
+
 import { userService } from "./user.service";
 
 
