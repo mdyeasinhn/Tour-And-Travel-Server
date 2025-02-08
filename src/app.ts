@@ -1,6 +1,7 @@
-import express, { Application, Request, Response } from "express";
+import express, { Application, NextFunction, Request, Response } from "express";
 import cors from "cors";
 import userRouter from "./module/user/user.route";
+import { StatusCodes } from "http-status-codes";
 const app: Application = express();
 const port = 3000;
 
@@ -17,6 +18,14 @@ app.get("/", (req: Request, res: Response) => {
   });
 });
 
-console.log(process.cwd());
+//console.log(process.cwd());
+
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+app.use((err: any, req: Request, res: Response, _next: NextFunction) => {
+//  console.log('error from app.ts', err)
+  res
+    .status(StatusCodes.INTERNAL_SERVER_ERROR)
+    .json({ success: false, message: err.message, error: err })
+})
 
 export default app;
