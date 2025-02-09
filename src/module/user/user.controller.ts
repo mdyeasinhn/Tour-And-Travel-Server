@@ -1,8 +1,9 @@
 // ----> req and res manage <----
 import { StatusCodes } from "http-status-codes";
 import sendResponse from "../../utils/sendResponse";
-import { userService } from "./user.service";
+
 import catchAsync from "../../utils/catchAsync";
+import { userService } from "../User/user.service";
 
 
 // ----> Create user controller <----
