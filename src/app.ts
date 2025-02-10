@@ -1,8 +1,9 @@
 import express, { Application, NextFunction, Request, Response } from "express";
 import cors from "cors";
-import userRouter from "./module/User/user.route";
 import { StatusCodes } from "http-status-codes";
+import userRouter from "./module/User/user.route";
 import tourRouter from "./module/Tour/tour.route";
+import bookingRouter from "./module/Bookings/booking.route";
 const app: Application = express();
 // const port = 3000;
 
@@ -12,6 +13,7 @@ app.use(cors());
 
 app.use('/api/user', userRouter);
 app.use('/api/tour', tourRouter);
+app.use('/api/booking', bookingRouter);
 
 app.get("/", (req: Request, res: Response) => {
   res.send({

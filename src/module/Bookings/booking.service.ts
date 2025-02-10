@@ -1,7 +1,8 @@
 import mongoose from "mongoose"
-import Tour from "../tour/tour.model"
+
 import { IBooking } from "./booking.interface"
 import Booking from "./booking.model"
+import Tour from "../Tour/tour.model"
 
 const createBooking = async (payload: IBooking): Promise<IBooking> => {
 
@@ -70,7 +71,7 @@ const createBooking = async (payload: IBooking): Promise<IBooking> => {
 
         const booking = await Booking.create([payload], { session })
 
-        console.log(booking);
+//        console.log(booking);
         // throw new Error('Failed to create booking');
 
         // availableSeats = availableSeats - bookedSlots
